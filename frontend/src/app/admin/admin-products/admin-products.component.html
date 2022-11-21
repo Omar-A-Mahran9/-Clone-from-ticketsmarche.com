@@ -1,0 +1,115 @@
+<div id="cntOutHdr ">
+  <div class="inside-content">
+    <table cellspacing="0" cellpadding="0" border="2" class="center">
+      <tr>
+        <th><h5>ID</h5></th>
+        <th><h5>Title</h5></th>
+        <th><h5>desc</h5></th>
+        <th><h5>Img</h5></th>
+        <th><h5>Price</h5></th>
+        <th><h5>Date</h5></th>
+        <th><h5>Timing</h5></th>
+        <th><h5>City</h5></th>
+        <th><h5>Venue</h5></th>
+        <th><h5>Category</h5></th>
+        <th><h5>Edit</h5></th>
+        <th><h5>Delete</h5></th>
+        <!-- <th><input (click)="openModal()" type="submit" value="ADD NEW PRODUCT" /></th> -->
+      </tr>
+
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>
+            <p>{{ p.id }}</p>
+          </td>
+          <td>
+            <p>{{ p.title }}</p>
+          </td>
+          <td>
+            <p>{{ p.desc }}</p>
+          </td>
+          <td>
+            <img height="70" id="14007" src="{{ p.image }}" width="150" />
+          </td>
+          <td>{{ p.price }}</td>
+          <td>{{ p.date }}</td>
+          <td>{{ p.timing }}</td>
+          <td>{{ p.City }}</td>
+          <td>{{ p.venue }}</td>
+          <td>{{ p.Category }}</td>
+          <td><input type="submit" value="EDIT" /></td>
+          <td>
+            <input (click)="deleteTickets(p.id)" type="submit" value="DELETE" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    Create New Event
+    <hr />
+    <form [formGroup]="createEvent" (ngSubmit)="onSubmit()">
+      <label>Event's Title</label>
+      <br />
+      <input
+      formControlName="eventtitle"
+        type="text"
+        placeholder="Event's Title"
+      />
+      <br />
+      <label>Event's Descriptions</label>
+      <br />
+      <textarea
+      formControlName="eventdesc"
+        placeholder="Enter Event's Descriptions"
+      ></textarea>
+      <br />
+      <label>upload image</label>
+      <input
+      formControlName="eventimage"
+        type="file"
+        placeholder="upload image"
+      />
+      <br />
+      <label>Price</label>
+      <br />
+      <input
+      formControlName="eventprice"
+        type="number"
+        placeholder="Ticket's price"
+      />
+      <br />
+      <label>Timing</label>
+      <br />
+      <input formControlName="eventtiming" type="number" placeholder="Timing" />
+      <br />
+      <label>Event Date</label>
+      <input formControlName="eventdate" type="date" />
+      <br />
+      <label>Event City:</label>
+      <select formControlName="eventcity">
+        <option value="Alexandria">Alexandria</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Luxor">Luxor</option>
+        <option value="Aswan">Aswan</option>
+      </select>
+      <br />
+      <label>Event Venue:</label>
+      <select formControlName="eventvenue">
+        <option value="AUC Venue">AUC Venue</option>
+        <option value="Maadi Venue">Maadi Venue</option>
+        <option value="Cpital Venue">Capital Venue</option>
+        <option value="Opera Venue">Opera Venue</option>
+      </select>
+      <br />
+      <label>Event Category:</label>
+      <select formControlName="eventcategory">
+        <option value="Arts & theater">Arts & theater</option>
+        <option value="Music">Music</option>
+        <option value="sports event">sports event</option>
+        <option value="opera classic">Opera Classic</option>
+      </select>
+      <br />
+      <input (click)="AddProduct()" type="submit" value="Create New Event" />
+    </form>
+  </div>
+</div>

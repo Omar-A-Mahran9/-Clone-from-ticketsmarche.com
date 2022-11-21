@@ -1,0 +1,44 @@
+<div id="cntOutHdr ">
+  <div class="inside-content">
+    <form [formGroup]="aboutform">
+      <input formControlName="id" type="hidden" value="1" />
+      <label>About Title </label>
+      <input
+        formControlName="titleinput"
+        type="text"
+        placeholder="{{ title }}"
+      />
+      <br />
+      <label>About Data </label>
+      <textarea formControlName="bodyinput" rows="4" cols="50">
+        {{ body }}
+      </textarea>
+      <br />
+      <input type="submit" (click)="updateData()" value="update about" />
+      <br />
+    </form>
+    <hr />
+    <h3>Operation Section</h3>
+    <hr />
+    <table>
+      <tr>
+        <td>Title</td>
+        <td>Body</td>
+        <td>Delete</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>{{ title }}</td>
+          <td>{{ body }}</td>
+          <td>
+            <input
+              (click)="deleteData(id)"
+              type="submit"
+              value="Delete title"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
